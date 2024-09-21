@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #c1bdbd; /* Light background for light mode */
+            font-family: Arial, sans-serif; /* Clean font */
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+            display: flex; /* Flexbox for layout */
+            flex-wrap: wrap; /* Allow wrapping */
+            gap: 10px; /* Space between images */
+        }
+        li {
+            position: relative; /* Positioning for transitions */
+            overflow: hidden; /* Hide overflow for animations */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            transition: transform 0.3s; /* Smooth scaling effect */
+        }
+        li:hover {
+            transform: scale(1.05); /* Scale on hover */
+        }
+        img {
+            max-width: 100%; /* Maximum width */
+            max-height: 200px; /* Maximum height */
+            height: auto; /* Maintain aspect ratio */
+            opacity: 0; /* Start invisible for fade-in effect */
+            animation: fadeIn 1s forwards; /* Fade-in animation */
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1; /* End with full opacity */
+            }
+        }
+        /* Light/Dark Mode Styles */
+        .dark-mode {
+            background-color: #ffffff; /* Dark background for dark mode */
+            color: #000000; /* Light text for dark mode */
+        }
+        /* Button styles */
+        #themeToggle {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #b48409;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+            margin-bottom: 20px; /* Space below button */
+        }
+        #themeToggle:hover {
+            background-color: #0b7269; /* Darker shade on hover */
+            transform: scale(1.05); /* Slightly grow on hover */
+        }
+        /* Lightbox Styles */
+        .lightbox {
+            display: none; /* Hidden by default */
+            position: fixed; /* Full screen overlay */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img {
+            max-width: 90%; /* Responsive image in lightbox */
+            max-height: 90%; /* Responsive image in lightbox */
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        /* Loading Indicator */
+        .loading {
+            display: none; /* Hidden by default */
+            text-align: center;
+            font-size: 20px;
+        }
+        footer {
+        position: fixed; /* Fix the position to the viewport */
+        bottom: 20px; /* Adjust as needed for spacing from the bottom */
+        left: 20px; /* Position to the left side */
+        z-index: 1000; /* Ensure it appears above other content */
+        }
+    </style>
+</head>
+<body>
+    <h1>Photo Gallery</h1>
+    <button id="themeToggle">Toggle Dark/Light Mode</button>
+    <div class="loading">Loading...</div>
+    <ul id="gallery">
+        <li>
+            <img src="IMG_20240220_133334.jpg" alt="Photo 2" onclick="openLightbox(this)">
+        </li>
+        <li>
+            <img src="Screenshot_2024-09-18-02-16-27-93_92460851df6f172a4592fca41cc2d2e6.jpg" alt="Photo 3" onclick="openLightbox(this)">
+        </li>
+        <li>
+            <img src="Screenshot_2024-09-18-02-17-15-99_92460851df6f172a4592fca41cc2d2e6.jpg" alt="Photo 4" onclick="openLightbox(this)">
+        </li>
+        <li>
+            <img src="Screenshot_2024-09-18-02-17-37-90_92460851df6f172a4592fca41cc2d2e6.jpg" alt="Photo 5" onclick="openLightbox(this)">
+        </li>
+    </ul>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <script>
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.onclick = () => {
+            document.body.classList.toggle('dark-mode');
+        };
+
+        // Lightbox functionality
+        function openLightbox(image) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = image.src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Simulate loading content
+        document.addEventListener('DOMContentLoaded', () => {
+            const loading = document.querySelector('.loading');
+            loading.style.display = 'block';
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 1000); // Simulate loading for 1 second
+        });
+    </script>
+    <footer>
+        Copyright © Arpan Gupta, 2024
+        <br>
+        <a href="aboutus.html">About Us</a>
+    </footer>
+</body>
+</html>

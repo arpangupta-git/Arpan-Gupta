@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            padding: 20px;
+            color: #c1bdbd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .toggle {
+            margin-bottom: 20px;
+        }
+
+        .toggle button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #b48409;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle button:hover {
+            background-color: #0b7269;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap; /* Allows videos to wrap onto new lines */
+            gap: 20px; /* Space between videos */
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            justify-content: center; /* Centers the videos */
+        }
+
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(0, 0, 0); /* Background for the video container */
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            overflow: hidden; /* Ensures videos don't overflow the container */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 10px; /* Padding around the video */
+            cursor: pointer;
+        }
+
+        li:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        }
+
+        video {
+            width: auto; 
+            height: auto; 
+            max-width: 100%; 
+            max-height: 300px;
+            border-radius: 10px; /* Rounded corners for the video */
+            transition: transform 0.3s ease; /* Smooth transition for the video itself */
+        }
+
+        video:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 252, 252, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox video {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-mode li {
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
+
+        /* Fade-in effect */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        video {
+            opacity: 0; /* Start invisible */
+            animation: fadeIn 1.5s forwards; /* Fade-in effect */
+        }
+        footer {
+        position: fixed; /* Fix the position to the viewport */
+        bottom: 20px; /* Adjust as needed for spacing from the bottom */
+        left: 20px; /* Position to the left side */
+        z-index: 1000; /* Ensure it appears above other content */
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Gallery</h1>
+    <div class="toggle">
+        <button id="mode-toggle">Toggle Dark/Light Mode</button>
+    </div>
+
+    <ul>
+        <li onclick="openLightbox('WhatsApp Video 2024-09-09 at 16.30.59_5460b0f7.mp4')">
+            <video controls>
+                <source src="WhatsApp Video 2024-09-09 at 16.30.59_5460b0f7.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </li>
+        <!--<li onclick="openLightbox('WhatsApp Video 2024-09-09 at 16.30.59_5460b0f7.mp4')">
+            <video controls>
+                <source src="WhatsApp Video 2024-09-09 at 16.30.59_5460b0f7.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </li>
+        <li onclick="openLightbox('WhatsApp Video 2024-09-09 at 16.30.59_5460b0f7.mp4')">
+            <video controls>
+                <source src="WhatsApp Video 2024-09-09 at 16.30.59_5460b0f7.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </li>
+        <li onclick="openLightbox('WhatsApp Video 2024-09-09 at 16.30.59_5460b0f7.mp4')">
+            <video controls>
+                <source src="WhatsApp Video 2024-09-09 at 16.30.59_5460b0f7.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </li>-->
+    </ul>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <video id="lightbox-video" controls>
+            <source id="lightbox-source" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        function openLightbox(videoSrc) {
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox-source').src = videoSrc;
+            document.getElementById('lightbox-video').load();
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Dark/Light mode toggle
+        document.getElementById('mode-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+    <footer>
+        Copyright ©ArpanGupta, 2024
+        <br>
+        <a href="aboutus.html">About Us</a>
+    </footer>
+</body>
+</html>
