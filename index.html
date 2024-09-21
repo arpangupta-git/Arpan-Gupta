@@ -17,49 +17,15 @@
         <section class="view-section" aria-label="All Uploaded Content Sliders">
             <h2>Aishwary Shreykar Singh</h2>
             <h3>I am GAY and I love getting F*cked by Men</h3>
-            <!-- Photos Slider -->
-            <div class="content-slider" id="photos-slider" role="group" aria-labelledby="photos-slider-label" tabindex="0">
-                <h3 id="photos-slider-label">Photos</h3>
-                <div class="slider-container">
-                    <div class="slider">
-                        <ul id="view-photo-list" class="uploaded-photos-view">
-                            <li>
-                                <img src="IMG_20240220_133334.jpg" alt="Photo 2">
-                            </li>
-                            <li>
-                                <img src="Screenshot_2024-09-18-02-16-27-93_92460851df6f172a4592fca41cc2d2e6.jpg" alt="Photo 3">
-                            </li>
-                            <li>
-                                <img src="Screenshot_2024-09-18-02-17-15-99_92460851df6f172a4592fca41cc2d2e6.jpg" alt="Photo 4">
-                            </li>
-                            <li>
-                                <img src="Screenshot_2024-09-18-02-17-37-90_92460851df6f172a4592fca41cc2d2e6.jpg" alt="Photo 5">
-                            </li>
-                            <li>
-                                <img src="76d7b2457f16f4aa11b77d8926e48ff8-gay-heart-flag.png" alt="Photo 7">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <p>Swipe to see more photos</p>
+                <h3>Photos Available Here👇🏻</h3>
+                <nav>
+                    <a href="photos.html" class="btn">Click to See Photos</a>
+                </nav>
             </div>
-
-            <!-- Videos Slider -->
-            <div class="content-slider" id="videos-slider" role="group" aria-labelledby="videos-slider-label" tabindex="0">
-                <h3 id="videos-slider-label">Videos</h3>
-                <div class="slider-container">
-                    <div class="slider">
-                        <ul id="view-video-list" class="uploaded-videos-view">
-                            <li>
-                                <video controls>
-                                    <source src="WhatsApp Video 2024-09-09 at 16.30.59_5460b0f7.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <p>Swipe to see more videos</p>
+                <h3>Videos Available Here👇🏻</h3>
+                <nav>
+                    <a href="videos.html" class="btn2">Click to See Videos</a>
+                </nav>
             </div>
         </section>
         
@@ -70,11 +36,22 @@
         </div>
     </main>
     <script src="script.js"></script>
-    <footer>
-        Copyright @ Arpan Gupta, 2024
-        <br>
-        <a href="aboutus.html">About Us</a>
-    </footer>
-    
+
+    <div class="toggle">
+        <button id="mode-toggle">Dark/Light Mode</button>
+    </div>
+    <script>
+    // Dark/Light mode toggle
+        document.getElementById('mode-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+
+<footer>
+    Copyright @ArpanGupta
+    <br>
+    <a href="aboutus.html">About Us</a>
+</footer>
+
 </body>
 </html>
