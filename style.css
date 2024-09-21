@@ -7,22 +7,70 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    color: #333;
+    background-color: #000000;
+    color: #7e7e7e;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
 header {
     background: linear-gradient(#000000, #0b7269);
-    color: #fff;
+    color: #ffffff;
     padding: 1.5em;
     text-align: center;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     animation: slide-down 0.5s ease-out;
+    position: relative; /* Position relative for toggle switch */
 }
+
 header h1 {
     font-size: 3.5em; 
     line-height: 1.5; 
     margin: 0; 
+}
+.toggle {
+    position: fixed; /* Fix the position to the viewport */
+    bottom: 20px; /* Adjust as needed for spacing from the bottom */
+    right: 20px; /* Position to the right side */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.toggle-switch {
+    position: absolute;
+    top: 20px; /* Adjust based on header height */
+    right: 20px; /* Adjust for spacing from right */
+    display: flex;
+    align-items: center;
+}
+
+.toggle-switch input {
+    display: none; /* Hide the default checkbox */
+}
+
+.slider {
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.slider:before {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: white;
+    transition: transform 0.3s ease;
+}
+
+input:checked + .slider {
+    background-color: #0b7269; /* Color when checked */
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px); /* Move the toggle knob */
 }
 
 main {
@@ -53,6 +101,33 @@ h3 {
     font-size: 1.2em;
     color: #e0e0e0;
     position: relative;
+}
+.toggle {
+    margin-bottom: 20px;
+}
+
+.toggle button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b48409;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle button:hover {
+    background-color: #0b7269;
+}
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-mode li {
+    background-color: #000000;
+    border-radius: 10px;
 }
 
 /* Uploaded Content Lists */
@@ -154,6 +229,47 @@ h3 + .slider-container {
     cursor: pointer;
 }
 
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #c9901e;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #0b7269;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.btn2 {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #c9901e;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+.btn2:hover {
+    background-color: #0b7269;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
 /* Animations */
 @keyframes fade-in {
     0% {
@@ -174,6 +290,7 @@ h3 + .slider-container {
         opacity: 1;
     }
 }
+
 /* Scrollbar Styling */
 .uploaded-photos-view::-webkit-scrollbar,
 .uploaded-videos-view::-webkit-scrollbar {
@@ -189,4 +306,24 @@ h3 + .slider-container {
 .uploaded-photos-view::-webkit-scrollbar-thumb:hover,
 .uploaded-videos-view::-webkit-scrollbar-thumb:hover {
     background: #555; 
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background-color: #ffffff;
+    color: #333;
+}
+
+header.light-mode {
+    background: linear-gradient(#ffffff, #c4e3e4);
+}
+
+.view-section.light-mode {
+    background-color: rgba(240, 240, 240, 0.95);
+}
+footer {
+    position: fixed; /* Fix the position to the viewport */
+    bottom: 20px; /* Adjust as needed for spacing from the bottom */
+    left: 20px; /* Position to the left side */
+    z-index: 1000; /* Ensure it appears above other content */
 }
