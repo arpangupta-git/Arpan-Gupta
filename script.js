@@ -107,8 +107,7 @@ function createStars(count) {
             radius: Math.random() * 1.2,
             alpha: Math.random(),
             dx: (Math.random() - 0.5) * 0.1, // Reduced speed
-            dy: (Math.random() - 0.5) * 0.1, // Reduced speed
-            fallen: false // Track if the star has fallen
+            dy: (Math.random() - 0.5) * 0.1  // Reduced speed
         });
     }
 }
@@ -145,13 +144,15 @@ function createPlanets(count) {
             }
         }
     }
+
+    // Removed the extra planet; only 5 planets now
 }
 
 // Function to create falling stars
 function createFallingStar(x, y) {
     fallingStars.push({
-        x: x,  // Use the touch/click coordinates
-        y: y,  // Use the touch/click coordinates
+        x: x,
+        y: y,
         length: Math.random() * 80 + 10,
         speed: Math.random() * 5 + 3,
         alpha: 1,
@@ -275,6 +276,21 @@ function drawParticles() {
     });
 }
 
+// Function to create random stars
+function createStars(count) {
+    for (let i = 0; i < count; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 1.2,
+            alpha: Math.random(),
+            dx: (Math.random() - 0.5) * 0.1, // Reduced speed
+            dy: (Math.random() - 0.5) * 0.1, // Reduced speed
+            fallen: false // Track if the star has fallen
+        });
+    }
+}
+
 // Check if cursor or touch is near a star
 function checkStarInteraction(x, y) {
     stars.forEach(star => {
@@ -284,12 +300,15 @@ function checkStarInteraction(x, y) {
         
         // Only create a falling star if the clicked star is visible and has not fallen
         if (distance < star.radius + 10 && star.alpha > 0 && !star.fallen) {
-            createFallingStar(x, y); // Use the interaction coordinates
+            createFallingStar(star.x, star.y);
             star.alpha = 0; // Make the star disappear
             star.fallen = true; // Mark the star as fallen
         }
     });
 }
+
+
+
 
 // Animation loop
 function animate() {
