@@ -96,7 +96,7 @@ let fallingStars = [];
 let interactiveFallingStars = [];
 let particles = []; // New array for particle effects
 
-const planetColors = ['#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#27ae60', '#2ecc71'];
+const planetColors = ['#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#27ae60'];
 
 // Function to create random stars
 function createStars(count) {
@@ -128,13 +128,13 @@ function createPlanets(count) {
             moons: [] // Initialize moons array
         });
 
-        // Add moons to 5 out of the first 6 planets
-        if (i < 5) {
+        // Add moons to 4 of the planets
+        if (i < 4) {
             const moonCount = i < 2 ? 2 : 1; // First 2 planets get 2 moons, others get 1
             const baseMoonDistance = radius + 30; // Base distance for the first moon, slightly further away
             for (let j = 0; j < moonCount; j++) {
                 const moonDistance = baseMoonDistance + j * 50; // Increase distance for the second moon
-                const moonSize = Math.random() * (radius / 4) + 2; // Smaller moons for smaller planets
+                const moonSize = Math.random() * (radius / 4) + 2; // Store the size of the moon
                 planets[i].moons.push({
                     distance: moonDistance,
                     angle: Math.random() * Math.PI * 2,
@@ -145,18 +145,7 @@ function createPlanets(count) {
         }
     }
 
-    // Add an additional planet near the middle orbit without moons
-    const middlePlanetDistance = canvas.width / 5;
-    planets.push({
-        x: canvas.width / 2,
-        y: canvas.height / 2,
-        distance: middlePlanetDistance,
-        angle: Math.random() * Math.PI * 2,
-        speed: 0.0007 + Math.random() * 0.001, // Adjusted speed
-        radius: Math.random() * 15 + 5, // Smaller planet
-        color: planetColors[5], // Use the new color
-        moons: [] // No moons for this planet
-    });
+    // Removed the extra planet; only 5 planets now
 }
 
 // Function to create falling stars
@@ -320,7 +309,7 @@ function animate() {
 
 // Initial setup
 createStars(900);  // Increased number of stars for density
-createPlanets(8);  // Number of planets (including the new one without moons)
+createPlanets(5);  // Number of planets (5 total)
 animate();
 
 // Adjust canvas size dynamically
