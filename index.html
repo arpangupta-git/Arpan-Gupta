@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,47 +12,55 @@
 <body>
     <header>
         <h1>PSIT Hub</h1>
+        <!-- Hamburger Menu -->
+        <div class="hamburger-menu">
+            <button id="hamburger-toggle">&#9776;</button> <!-- Hamburger Icon -->
+        </div>
+        
+        <nav class="mobile-menu" id="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <div class="social-media">
+                <a href="https://facebook.com/sharer/sharer.php?u=https://arpangupta-git.github.io/Arpan-Gupta/" target="_blank">Share on Facebook</a>
+                <a href="https://twitter.com/intent/tweet?url=https://arpangupta-git.github.io/Arpan-Gupta/" target="_blank">Share on Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://arpangupta-git.github.io/Arpan-Gupta/https://arpangupta-git.github.io/Arpan-Gupta/" target="_blank">Share on LinkedIn</a>
+            </div>
+        </nav>
+        
     </header>
+    
     <main>
         <section class="view-section" aria-label="All Uploaded Content Sliders">
             <h2>Aishwary Shreykar Singh</h2>
-            <h3>Bio- I am GAY</h3>
-            <h3>Hobby- I love getting F*cked by Men</h3>
-                <h3>Photos Available Here👇🏻</h3>
-                <nav>
-                    <a href="photos.html" class="btn">Click to See Photos</a>
-                </nav>
-            </div>
-                <h3>Videos Available Here👇🏻</h3>
-                <nav>
-                    <a href="videos.html" class="btn2">Click to See Videos</a>
-                </nav>
-            </div>
+            <h3>Bio- I am</h3>
+            <h3>Hobby- I love getting by Men</h3>
+            <h3>Photos Available Here👇🏻</h3>
+            <nav>
+                <a href="photos.html" class="btn">Click to See Photos</a>
+            </nav>
+            <h3>Videos Available Here👇🏻</h3>
+            <nav>
+                <a href="videos.html" class="btn2">Click to See Videos</a>
+            </nav>
         </section>
-        
+
         <!-- Lightbox Modal -->
         <div id="lightbox" class="lightbox" style="display:none;">
             <span class="close" onclick="closeLightbox()">&times;</span>
             <img class="lightbox-img" id="lightbox-img" alt="Lightbox Image">
         </div>
     </main>
-    <script src="script.js"></script>
-
+    
     <div class="toggle">
         <button id="mode-toggle">Dark/Light Mode</button>
     </div>
-    <script>
-    // Dark/Light mode toggle
-        document.getElementById('mode-toggle').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-        });
-    </script>
+    
+    <footer>
+        © 2024 Arpan Gupta. All rights reserved.
+    </footer>
 
-<footer>
-    Copyright @ArpanGupta
-    <br>
-    <a href="aboutus.html">About Us</a>
-</footer>
-
+    <script src="script.js"></script>
+    
 </body>
 </html>
