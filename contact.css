@@ -1,0 +1,137 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #000000, #068a6b);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fade-in 1s ease-in;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #c9901e;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+/* Main Content */
+.contact-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    animation: slide-up 0.7s ease-in-out;
+    margin: 0 auto; /* Add this line to center the section */
+}
+
+.contact-section h2 {
+    color: #ffffff;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Email Section */
+.email-box i {
+    font-size: 3em;
+    color: #c9901e;
+}
+
+.email-box h3 {
+    font-size: 1.5em;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.email-box p a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.email-box p a:hover {
+    color: #c9901e;
+    text-decoration: underline;
+}
+
+/* Social Media Section */
+.social-media {
+    margin-top: 30px;
+}
+
+.social-media h3 {
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-size: 2.5em;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    color: #c9901e;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+}
+
+footer p {
+    color: #ffffff;
+    font-size: 0.9em;
+}
+
+/* Animations */
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
