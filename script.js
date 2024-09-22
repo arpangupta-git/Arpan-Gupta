@@ -74,3 +74,14 @@ function slideLeft(slider) {
 function slideRight(slider) {
     slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' });
 }
+// Close the hamburger menu when clicking outside of it
+document.addEventListener('click', function (event) {
+    const menu = document.getElementById('mobile-menu');
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+
+    // Check if the click was outside the menu and the hamburger toggle
+    if (!menu.contains(event.target) && !hamburgerToggle.contains(event.target)) {
+        menu.classList.remove('active');
+        menu.style.display = 'none'; // Ensure it is hidden
+    }
+});
