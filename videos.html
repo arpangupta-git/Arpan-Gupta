@@ -119,9 +119,26 @@
         left: 20px; /* Position to the left side */
         z-index: 1000; /* Ensure it appears above other content */
         }
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #b48409;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .home-button:hover {
+            background-color: #068a6b;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
+    <button class="home-button" onclick="window.location.href='index.html'">Home</button>
     <h1>Video Gallery</h1>
     <div class="toggle">
         <button id="mode-toggle">Dark/Light Mode</button>
