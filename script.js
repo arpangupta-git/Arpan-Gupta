@@ -6,6 +6,7 @@ sliders.forEach(slider => {
 
     const handleTouchStart = (e) => {
         startX = e.touches[0].clientX;
+        e.preventDefault(); // Prevent default behavior
     };
 
     const handleTouchMove = (e) => {
@@ -28,19 +29,27 @@ sliders.forEach(slider => {
 });
 
 // Hamburger menu toggle
-document.getElementById('hamburger-toggle').addEventListener('click', function () {
-    const menu = document.getElementById('mobile-menu');
+const menu = document.getElementById('mobile-menu');
+const hamburgerToggle = document.getElementById('hamburger-toggle');
+
+// Function to toggle the menu
+function toggleMenu() {
     menu.classList.toggle('active');
-});
+}
+
+// Event listener for hamburger toggle
+hamburgerToggle.addEventListener('click', toggleMenu);
 
 // Close the menu when clicking outside of it
 document.addEventListener('click', function (event) {
-    const menu = document.getElementById('mobile-menu');
-    const hamburgerToggle = document.getElementById('hamburger-toggle');
-    
     if (!menu.contains(event.target) && !hamburgerToggle.contains(event.target)) {
         menu.classList.remove('active');
     }
+});
+
+// Ensure the hamburger menu works after page loads
+window.addEventListener('load', () => {
+    menu.classList.remove('active'); // Reset menu state on load
 });
 
 // Dark/Light mode toggle
@@ -74,4 +83,3 @@ function slideLeft(slider) {
 function slideRight(slider) {
     slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' });
 }
-
