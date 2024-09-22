@@ -135,3 +135,19 @@ footer p {
         opacity: 1;
     }
 }
+.home-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #b48409;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.home-button:hover {
+    background-color: #8f6a0e;
+    transform: scale(1.05);
+}
