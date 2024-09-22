@@ -140,9 +140,10 @@ h3 {
 }
 
 @media (max-width: 768px) {
-    .mobile-menu {
-        display: flex; /* Show mobile menu on smaller screens */
-    }
+    /* Remove this line to prevent auto-opening */
+    /* .mobile-menu {
+        display: flex; // Remove this line
+    } */
 }
 
 /* Notification Area */
