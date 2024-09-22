@@ -107,7 +107,8 @@ function createStars(count) {
             radius: Math.random() * 1.2,
             alpha: Math.random(),
             dx: (Math.random() - 0.5) * 0.1, // Reduced speed
-            dy: (Math.random() - 0.5) * 0.1  // Reduced speed
+            dy: (Math.random() - 0.5) * 0.1, // Reduced speed
+            fallen: false // Track if the star has fallen
         });
     }
 }
@@ -144,15 +145,13 @@ function createPlanets(count) {
             }
         }
     }
-
-    // Removed the extra planet; only 5 planets now
 }
 
 // Function to create falling stars
 function createFallingStar(x, y) {
     fallingStars.push({
-        x: x,
-        y: y,
+        x: x,  // Use the touch/click coordinates
+        y: y,  // Use the touch/click coordinates
         length: Math.random() * 80 + 10,
         speed: Math.random() * 5 + 3,
         alpha: 1,
@@ -283,9 +282,11 @@ function checkStarInteraction(x, y) {
         const dy = star.y - y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < star.radius + 10) { // Adjust the hit area as needed
-            createFallingStar(star.x, star.y); // Create falling star at the star's position
-            star.alpha = 0; // Optionally make the star disappear
+        // Only create a falling star if the clicked star is visible and has not fallen
+        if (distance < star.radius + 10 && star.alpha > 0 && !star.fallen) {
+            createFallingStar(x, y); // Use the interaction coordinates
+            star.alpha = 0; // Make the star disappear
+            star.fallen = true; // Mark the star as fallen
         }
     });
 }
@@ -308,7 +309,7 @@ function animate() {
 }
 
 // Initial setup
-createStars(900);  // Increased number of stars for density
+createStars(1000);  // Increased number of stars for density
 createPlanets(5);  // Number of planets (5 total)
 animate();
 
@@ -331,7 +332,5 @@ canvas.addEventListener('touchstart', (event) => {
     const rect = canvas.getBoundingClientRect();
     const x = event.touches[0].clientX - rect.left;
     const y = event.touches[0].clientY - rect.top;
-
-    // Check for star interaction
     checkStarInteraction(x, y);
 });
