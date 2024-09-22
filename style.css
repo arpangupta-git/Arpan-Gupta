@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background: linear-gradient(#000000, #0b7269);
+    background: linear-gradient(#000000, #068a6b);
     color: #ffffff;
     padding: 1.5em;
     text-align: center;
@@ -27,6 +27,7 @@ header h1 {
     line-height: 1.5; 
     margin: 0; 
 }
+
 .toggle {
     position: fixed; /* Fix the position to the viewport */
     bottom: 20px; /* Adjust as needed for spacing from the bottom */
@@ -46,33 +47,6 @@ header h1 {
     display: none; /* Hide the default checkbox */
 }
 
-.slider {
-    width: 60px;
-    height: 30px;
-    background-color: #ccc;
-    border-radius: 30px;
-    position: relative;
-    transition: background-color 0.3s ease;
-}
-
-.slider:before {
-    content: '';
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: white;
-    transition: transform 0.3s ease;
-}
-
-input:checked + .slider {
-    background-color: #0b7269; /* Color when checked */
-}
-
-input:checked + .slider:before {
-    transform: translateX(30px); /* Move the toggle knob */
-}
-
 main {
     display: flex;
     flex-direction: column;
@@ -81,7 +55,7 @@ main {
 }
 
 .view-section {
-    background-color: rgba(34, 34, 34, 0.95);
+    background-color: rgba(35, 35, 35, 0.95);
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -102,10 +76,106 @@ h3 {
     color: #e0e0e0;
     position: relative;
 }
-.toggle {
-    margin-bottom: 20px;
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: block; /* Show the hamburger menu on all screen sizes */
+    position: fixed; /* Make the position fixed */
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
+#hamburger-toggle {
+    font-size: 2em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed; /* Keep the mobile menu position fixed as well */
+    top: 50px; /* Slightly below the hamburger icon */
+    right: 10px;
+    background-color: #333;
+    flex-direction: column;
+    z-index: 999; /* Ensure it's on top */
+    width: 200px;
+}
+
+.mobile-menu a {
+    padding: 10px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+.mobile-menu a:hover {
+    background: #555;
+}
+
+.mobile-menu.active {
+    display: flex; /* Show menu when active */
+}
+
+.social-media {
+    margin-top: 10px; /* Spacing above social media links */
+    padding: 10px;
+    text-align: center; /* Center the text */
+}
+
+.social-media a {
+    display: block; /* Display each link on a new line */
+    color: white;
+    text-decoration: none;
+    margin: 5px 0; /* Spacing between links */
+    font-weight: 700;
+}
+
+.social-media a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: flex; /* Show mobile menu on smaller screens */
+    }
+}
+
+/* Notification Area */
+.notification-area {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #f0ad4e;
+    color: white;
+    padding: 10px;
+    display: none;
+}
+
+/* Carousel */
+.content-slider {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.slider {
+    display: flex;
+    gap: 20px;
+}
+
+.slider img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Toggle Button Styles */
 .toggle button {
     padding: 10px 20px;
     border: none;
@@ -117,88 +187,19 @@ h3 {
 }
 
 .toggle button:hover {
-    background-color: #0b7269;
+    background-color: #068a6b;
 }
-/* Dark mode styles */
+
+/* Dark Mode */
 body.dark-mode {
     background-color: #ffffff;
     color: #000000;
 }
 
-body.dark-mode li {
-    background-color: #000000;
-    border-radius: 10px;
-}
-
-/* Uploaded Content Lists */
-.uploaded-photos-view, .uploaded-videos-view {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto; 
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
-    list-style-type: none;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    align-items: center;
-}
-
-.uploaded-photos-view li, .uploaded-videos-view li {
-    margin: 5px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    flex: 0 0 auto; 
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.uploaded-photos-view li:hover, .uploaded-videos-view li:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.uploaded-photos-view img, 
-.uploaded-videos-view video {
-    width: auto; 
-    height: auto; 
-    max-width: 100%; 
-    max-height: 300px; 
-}
-
-/* View Section Sliders */
-.view-section {
-    position: relative;
-}
-
-.content-slider {
-    margin-bottom: 40px;
-}
-.content-slider p {
-    color: #ffffff; 
-}
-
-.slider-container {
-    display: flex;
-    align-items: center; 
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    margin-top: 20px;
-}
-
-h3 + .slider-container {
-    padding-top: 20px; 
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%;
+@media (max-width: 768px) {
+    .view-section {
+        flex-direction: column;
+    }
 }
 
 /* Lightbox Styles */
@@ -245,7 +246,7 @@ h3 + .slider-container {
 }
 
 .btn:hover {
-    background-color: #0b7269;
+    background-color: #068a6b;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
     cursor: pointer;
 }
@@ -265,7 +266,7 @@ h3 + .slider-container {
 }
 
 .btn2:hover {
-    background-color: #0b7269;
+    background-color: #068a6b;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
     cursor: pointer;
 }
@@ -291,23 +292,6 @@ h3 + .slider-container {
     }
 }
 
-/* Scrollbar Styling */
-.uploaded-photos-view::-webkit-scrollbar,
-.uploaded-videos-view::-webkit-scrollbar {
-    height: 8px; 
-}
-
-.uploaded-photos-view::-webkit-scrollbar-thumb,
-.uploaded-videos-view::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 10px; 
-}
-
-.uploaded-photos-view::-webkit-scrollbar-thumb:hover,
-.uploaded-videos-view::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-}
-
 /* Light Mode Styles */
 body.light-mode {
     background-color: #ffffff;
@@ -321,6 +305,7 @@ header.light-mode {
 .view-section.light-mode {
     background-color: rgba(240, 240, 240, 0.95);
 }
+
 footer {
     position: fixed; /* Fix the position to the viewport */
     bottom: 20px; /* Adjust as needed for spacing from the bottom */
