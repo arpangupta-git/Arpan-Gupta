@@ -284,7 +284,7 @@ function checkStarInteraction(x, y) {
         const distance = Math.sqrt(dx * dx + dy * dy);
         
         if (distance < star.radius + 10) { // Adjust the hit area as needed
-            createFallingStar(star.x, star.y);
+            createFallingStar(star.x, star.y); // Create falling star at the star's position
             star.alpha = 0; // Optionally make the star disappear
         }
     });
@@ -331,5 +331,7 @@ canvas.addEventListener('touchstart', (event) => {
     const rect = canvas.getBoundingClientRect();
     const x = event.touches[0].clientX - rect.left;
     const y = event.touches[0].clientY - rect.top;
+
+    // Check for star interaction
     checkStarInteraction(x, y);
 });
