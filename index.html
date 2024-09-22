@@ -7,9 +7,12 @@
     <meta name="author" content="Arpan Gupta">
     <title>PSIT Hub</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <canvas id="spaceCanvas"></canvas>
+
     <header>
         <h1>PSIT Hub</h1>
         <!-- Hamburger Menu -->
@@ -26,11 +29,11 @@
                 <a href="https://twitter.com/intent/tweet?url=https://arpangupta-git.github.io/Arpan-Gupta/" target="_blank">Share on Twitter</a>
                 <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://arpangupta-git.github.io/Arpan-Gupta/https://arpangupta-git.github.io/Arpan-Gupta/" target="_blank">Share on LinkedIn</a>
             </div>
-        </nav>
-        
+        </nav> 
     </header>
     
-    <main>
+    <main>        
+        
         <section class="view-section" aria-label="All Uploaded Content Sliders">
             <h2>Aishwary Shreykar Singh</h2>
             <h3>Bio- I am GAY</h3>
@@ -44,23 +47,19 @@
                 <a href="videos.html" class="btn2">Click to See Videos</a>
             </nav>
         </section>
-
         <!-- Lightbox Modal -->
         <div id="lightbox" class="lightbox" style="display:none;">
             <span class="close" onclick="closeLightbox()">&times;</span>
             <img class="lightbox-img" id="lightbox-img" alt="Lightbox Image">
         </div>
     </main>
-    
+    <!--
     <div class="toggle">
         <button id="mode-toggle">Dark/Light Mode</button>
-    </div>
-    
+    </div>-->
     <footer>
         © Arpan Gupta, 2024
     </footer>
-
-    <script src="script.js"></script>
-    
+    <script src="script.js"></script>   
 </body>
 </html>
